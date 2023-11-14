@@ -32,7 +32,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 300px;
+        height: 280px;
         border-radius: 10px;
     }
     .promotion .content{

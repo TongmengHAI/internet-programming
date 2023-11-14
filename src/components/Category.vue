@@ -33,6 +33,7 @@
         align-items: center;
         justify-content: center;
         border-radius: 10px;
+        padding: 5px 0;
 
     }
     .category:hover{
