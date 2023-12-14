@@ -496,7 +496,7 @@ function Lt (p, f, c, y, v, h) {
                         t('div', Et, [
                           e(
                             d,
-                            { img: './assets/img/' + i.image },
+                            { img: '../assets/img/' + i.image },
                             null,
                             8,
                             ['img']
@@ -526,12 +526,12 @@ function Lt (p, f, c, y, v, h) {
                       ]),
                       t('div', $t, [
                         Bt,
-                        e(d, { img: './assets/img/' + i.image }, null, 8, [
+                        e(d, { img: '../assets/img/' + i.image }, null, 8, [
                           'img'
                         ]),
-                        e(d, { img: './assets/img/subImage2.png' }),
-                        e(d, { img: './assets/img/subImage3.png' }),
-                        e(d, { img: './assets/img/subImage4.png' }),
+                        e(d, { img: '../assets/img/subImage2.png' }),
+                        e(d, { img: '../assets/img/subImage3.png' }),
+                        e(d, { img: '../assets/img/subImage4.png' }),
                         Pt
                       ]),
                       t('div', Nt, [

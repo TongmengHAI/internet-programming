@@ -6045,7 +6045,7 @@ function hf (e, t, n, s, o, r) {
                 h,
                 {
                   categoryId: '/categories/' + w.id,
-                  img: ' /assets/img/' + w.img,
+                  img: ' ./assets/img/' + w.img,
                   name: w.name,
                   num_item: w.num_item,
                   bg_color: w.bg_color
