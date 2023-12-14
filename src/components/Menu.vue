@@ -5,7 +5,7 @@
         </div>  
         <div class="all_menu">
             <li><a href="#" style="font-weight: bold">All</a></li>
-            <ul v-for="items in groups">
+            <ul v-for="items in groups" style="margin-top: 20px;">
     
                 <li ><a href="#">{{items}}</a></li>
             </ul>

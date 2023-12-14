@@ -5,7 +5,7 @@ export const useProductStore = defineStore('product_store', {
             category:[
                 {
                     id:1,
-                    img: "./src/assets/img/humbeger.png",
+                    img: "humbeger.png",
                     name: "Cake & Milk",
                     num_item: "14",
                     bg_color: "#F2FCE4",
@@ -14,7 +14,7 @@ export const useProductStore = defineStore('product_store', {
                 },
                 {
                     id:2,
-                    img: "./src/assets/img/persimmon.png",
+                    img: "persimmon.png",
                     name: "Peach",
                     num_item: "17",
                     bg_color: "#FFFCEB",
@@ -23,7 +23,7 @@ export const useProductStore = defineStore('product_store', {
                 },
                 {
                     id:3,
-                    img: "./src/assets/img/kiwi.png",
+                    img: "kiwi.png",
                     name: "Oganic Kiwi",
                     num_item: "21",
                     bg_color: "#ECFFEC",
@@ -32,7 +32,7 @@ export const useProductStore = defineStore('product_store', {
                 },
                 {
                     id:4,
-                    img: "./src/assets/img/apple.png",
+                    img: "apple.png",
                     name: "Red apple",
                     num_item: "68",
                     bg_color: "#FEEFEA",
@@ -40,7 +40,7 @@ export const useProductStore = defineStore('product_store', {
                 },
                 {
                     id:5,
-                    img: "./src/assets/img/snack.png",
+                    img: "snack.png",
                     name: "Snack",
                     num_item: "34",
                     bg_color: "#FFF3EB",
@@ -49,7 +49,7 @@ export const useProductStore = defineStore('product_store', {
                 },
                 {
                     id:6,
-                    img: "./src/assets/img/blueberry.png",
+                    img: "blueberry.png",
                     name: "Black plum",
                     num_item: "25",
                     bg_color: "#FFF3FF",
@@ -57,7 +57,7 @@ export const useProductStore = defineStore('product_store', {
                 },
                 {
                     id:7,
-                    img: "./src/assets/img/cabbage.png",
+                    img: "cabbage.png",
                     name: "Vegetables",
                     num_item: "65",
                     bg_color: "#F2FCE4",
@@ -65,7 +65,7 @@ export const useProductStore = defineStore('product_store', {
                 },
                 {
                     id:8,
-                    img: "./src/assets/img/headphone.png",
+                    img: "headphone.png",
                     name: "Headphone",
                     num_item: "33",
                     bg_color: "#FFFCEB",
@@ -74,7 +74,7 @@ export const useProductStore = defineStore('product_store', {
                 },
                 {
                     id:9,
-                    img: "./src/assets/img/Biscuits.png",
+                    img: "Biscuits.png",
                     name: "Cake & Milk",
                     num_item: "54",
                     bg_color: "#F2FCE4",
@@ -83,7 +83,7 @@ export const useProductStore = defineStore('product_store', {
                 },
                 {
                     id:10,
-                    img: "./src/assets/img/orange.png",
+                    img: "orange.png",
                     name: "Orange",
                     num_item: "63",
                     bg_color: "#FFF3FF",
@@ -96,21 +96,21 @@ export const useProductStore = defineStore('product_store', {
                 {   
 
                     id:1,
-                    img: "./src/assets/img/oinoin.png",
+                    img: "oinoin.png",
                     title: "Everyday Fresh & Clean with Our Products",
                     bg_color: "#F0E8D5",
                     btn_color: '#3BB77E',
                 },
                 {
                     id:2,
-                    img: "./src/assets/img/juice.png",
+                    img: "juice.png",
                     title: "Make your Breakfast Healthy and Easy",
                     bg_color: "#F3E8E8",
                     btn_color: '#3BB77E',
                 },
                 {
                     id:3,
-                    img: "./src/assets/img/vegetables.png",
+                    img: "vegetables.png",
                     title: "The best Organic Products Online",
                     bg_color: "#E7EAF3",
                     btn_color: '#FDC040',
@@ -132,12 +132,14 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 1,
                     tag: "-17%",
-                    image: './src/assets/img/mengo.png',
+                    image: 'mengo.png',
                     category: 1,
                     type:"Hodo Food",
                     name: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
+                    
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51
@@ -145,12 +147,13 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 2,
                     tag: "Hot",
-                    image: './src/assets/img/corn.png',
+                    image: 'corn.png',
                     category: 2,
                     type:"Hodo Food",
                     name: "All Natural Italian-Style Chicken Meatballs",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51
@@ -158,12 +161,13 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 3,
                     tag: "Sale",
-                    image: './src/assets/img/oranges.png',
+                    image: 'oranges.png',
                     category: 2,
                     type:"Hodo Food",
                     name: "Angie’s Boomchickapop Sweet & Salty Kettle Corn",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51
@@ -171,12 +175,13 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 4,
                     tag: " ",
-                    image: './src/assets/img/chilis.png',
+                    image: 'chilis.png',
                     category: 3,
                     type:"Hodo Food",
-                    name: "Foster Farms Takeout Crispy Classic Buffalo Wings",
+                    name: "Foster Farms Takeout Crispy Classic Buffalo",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51
@@ -184,12 +189,13 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 5,
                     tag: " ",
-                    image: './src/assets/img/lemons.png',
+                    image: 'lemons.png',
                     category: 3,
                     type:"Hodo Food",
                     name: "Blue Diamond Almonds Lightly Salted Vegetables",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51
@@ -197,12 +203,13 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 6,
                     tag: " ",
-                    image: './src/assets/img/fish.png',
+                    image: 'fish.png',
                     category: 3,
                     type:"Hodo Food",
                     name: "Chobani Complete Vanilla Greek Yogurt",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51
@@ -210,12 +217,13 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 7,
                     tag: "Sale",
-                    image: './src/assets/img/fish_lemon.png',
+                    image: 'fish_lemon.png',
                     category: 4,
                     type:"Hodo Food",
                     name: "Canada Dry Ginger Ale – 2 L Bottle - 200ml - 400g",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51
@@ -223,12 +231,13 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 8,
                     tag: " ",
-                    image: './src/assets/img/steak.png',
+                    image: 'steak.png',
                     category: 5,
                     type:"Hodo Food",
                     name: "Encore Seafoods Stuffed Alaskan Salmon",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51
@@ -236,12 +245,13 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 9,
                     tag: " ",
-                    image: './src/assets/img/fish_fille.png',
+                    image: 'fish_fille.png',
                     category: 6,
                     type:"Hodo Food",
                     name: "Gorton’s Beer Battered Fish Fillets with soft paper",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51
@@ -249,12 +259,13 @@ export const useProductStore = defineStore('product_store', {
                 {
                     id: 10,
                     tag: "Hot",
-                    image: './src/assets/img/vegetable.png',
+                    image: 'vegetable.png',
                     category: 7,
                     type:"Hodo Food",
                     name: "Haagen-Dazs Caramel Cone Ice Cream Ketchup",
                     rate: 4,
-                    description: "500 gram",
+                    weight: "500 gram",
+                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ea deserunt dolorem earum explicabo fugit repellendus hic delectus modi!",
                     sellPrice: 2.80,
                     discountPercentage: 17,
                     discountPrice: 2.51

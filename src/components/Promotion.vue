@@ -1,14 +1,18 @@
 <template>
-    <div class="promotion" :style="{backgroundColor:bg_color}">
-        <div class="content">
-            <div class="title">{{ title }}</div>
-            <Button_show :button_color="btn_color"/>
-        </div>
-        <div class="image"><img :src="img" alt=""></div>
+    <div >
+        <RouterLink :to="productId">
+            <div class="promotion" :style="{backgroundColor:bg_color}">
+                <div class="content">
+                    <div class="title">{{ title }}</div>
+                    <Button_show :button_color="btn_color"/>
+                </div>
+                <div class="image"><img :src="img" alt=""></div>
+            </div>
+        </RouterLink>
     </div>
 </template>
 
-<script>
+<script scope>
 
     import Button_show from './Button_show.vue';
     
@@ -23,6 +27,7 @@
             title:String,
             btn_color:String,
             bg_color:String,
+            productId:String,
         },
         
     }

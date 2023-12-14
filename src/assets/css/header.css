@@ -1,0 +1,14 @@
+.allMenu ul .allCategory{
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.banner .bannerImage{
+    background-image: url("@/assets/img/backgroundImg.png");
+    border-radius: 30px;
+}
+.pageHeader .pageHeaderBgImg{
+    background-image: url("@/assets/img/pageHeaderImg.png");
+    border-radius: 30px;
+    padding: 50px;
+}

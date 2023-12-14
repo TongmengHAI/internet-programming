@@ -1,66 +1,76 @@
 <template>
-    <div class="products">
-        <div class="image">
-            <img :src="img">
-            
-            <template v-if =" tag == ' ' ">
-                <div class="tag" style="padding: 0;">
-                    {{ tag }} 
+    <div class="">
+
+            <div class="products">
+                <RouterLink :to="productId">
+
+                    <div class="image">
+                        <img :src="img">
+                        
+                        <template v-if =" tag == ' ' ">
+                            <div class="tag" style="padding: 0;">
+                                {{ tag }} 
+                            </div>
+                        </template>
+                        <template v-else>
+                            <template v-if = " tag =='Hot'" >
+                                <div class="tag" style="padding: 5px 10px 5px 10px;" :style="{backgroundColor:tagColor[1]}">
+                                    {{ tag }}                          
+                                </div>
+                            </template>
+                            <template v-else-if = " tag =='Sale'" >
+                                <div class="tag" style="padding: 5px 10px 5px 10px;" :style="{backgroundColor:tagColor[2]}">
+                                    {{ tag }}                          
+                                </div>
+                            </template>
+                            <template v-else>
+                                <div class="tag" style="padding: 5px 10px 5px 10px;" :style="{backgroundColor:tagColor[0]}">
+                                    {{ tag }}                          
+                                </div>
+                            </template>
+                        </template>
+                        
+                    </div>
+                    
+                </RouterLink>
+
+                <div class="content">
+                    <div class="">
+                        <div class="type">{{ type }}</div>
+                        <div class="title">{{ title }}</div>
+                        <div class="rating">
+                            <template v-for="num in rating ">
+                                <i class=' rating bx bxs-star'></i>
+                            </template>
+                            <template v-for="item in (5-rating)">
+                                <i class='unrating bx bxs-star' ></i>
+                            </template>
+                            <span class="rating_num">({{ rating.toFixed(1) }})</span>
+                        </div>
+                        <div class="description">{{ weight }}</div>
+                    </div>
+                    <div class="price">
+                        <div class="allPrice">
+                            <div class="discountPrice">${{ disPrice }}</div>
+                            <div class="sellprice"><s>${{sellPrice}}</s></div>
+                        </div>
+                        
+                        
+                        <div class="add_btn" >
+                            <button class="btn" style="cursor: pointer;">Add +</button>
+                            <input type="number" class="add_num" value="1"/>
+                        </div>
+                    </div>
                 </div>
-            </template>
-            <template v-else>
-                <template v-if = " tag =='Hot'" >
-                    <div class="tag" style="padding: 5px 10px 5px 10px;" :style="{backgroundColor:tagColor[1]}">
-                        {{ tag }}                          
-                    </div>
-                </template>
-                <template v-else-if = " tag =='Sale'" >
-                    <div class="tag" style="padding: 5px 10px 5px 10px;" :style="{backgroundColor:tagColor[2]}">
-                        {{ tag }}                          
-                    </div>
-                </template>
-                <template v-else>
-                    <div class="tag" style="padding: 5px 10px 5px 10px;" :style="{backgroundColor:tagColor[0]}">
-                        {{ tag }}                          
-                    </div>
-                </template>
-            </template>
-            
-        </div>
-        <div class="content">
-            <div class="">
-                <div class="type">{{ type }}</div>
-                <div class="title">{{ title }}</div>
-                <div class="rating">
-                    <template v-for="num in rating ">
-                        <i class=' rating bx bxs-star'></i>
-                    </template>
-                    <template v-for="item in (5-rating)">
-                        <i class='unrating bx bxs-star' ></i>
-                    </template>
-                    <span class="rating_num">({{ rating.toFixed(1) }})</span>
-                </div>
-                <div class="description">{{ description }}</div>
             </div>
-            <div class="price">
-                <div class="allPrice">
-                    <div class="discountPrice">${{ disPrice }}</div>
-                    <div class="sellprice"><s>${{sellPrice}}</s></div>
-                </div>
-                
-                <div class="add_btn" >
-                    <button class="btn" style="cursor: pointer;">Add +</button>
-                    <input type="number" class="add_num" value="1"/>
-                </div>
-            </div>
-        </div>
+
     </div>
+    
 
 </template>
 
 <style>
     .products{
-        /* width: 298px; */
         width: 100%;
         height: 350px;
         
@@ -73,7 +83,9 @@
         align-items: end ;
         justify-content: center;
         position: relative;
-        height: 50%;
+        height: 35%;
+        margin-top: 3%;
+
     }
     .products .image img{
         width: 70%;
@@ -82,16 +94,11 @@
         object-fit: contain;
     }
     .products .image .tag{
-        /* width: 58px;
-        height: 32px; */
-        /* top: 20px; */
+
         font-size: 14px;
         font-weight: 400;
         color: white;
-        /* padding: 5px 10px 5px 10px; */
         border-radius: 0px 30px 30px 0px;
-        /* background-color: #3BB77E; */
-
         position: absolute;
         left: 0;
         top: 20%;
@@ -181,33 +188,33 @@
 <script>
     import { mapState } from 'pinia';
     import { useProductStore } from "../stores/product_store";
+    import { RouterLink } from 'vue-router';
 
     export default{
-        name:"products",
-        
-        computed:{
-            ...mapState(useProductStore,['groups'])
-        },
-        props:{
-            img:String,
-            tag:String,
-            type:String,
-            title:String,
-            rating:Number,
-            description:String,
-            disPrice:Number,
-            sellPrice:Number,
-
-        },
-        data(){
-            return{
-                tagColor:[
-                    "#3BB77E","#FD6E6E","#FDC040"
-                ]
-            }   
-        }
-        
-    }
+    name: "products",
+    computed: {
+        ...mapState(useProductStore, ['groups'])
+    },
+    props: {
+        img: String,
+        tag: String,
+        type: String,
+        title: String,
+        rating: Number,
+        weight: String,
+        disPrice: Number,
+        sellPrice: Number,
+        productId:String,
+    },
+    data() {
+        return {
+            tagColor: [
+                "#3BB77E", "#FD6E6E", "#FDC040"
+            ]
+        };
+    },
+    components: { RouterLink }
+}
 
     $(document).ready(function() {
         $('.add_btn').on('click', '.btn', function() {
@@ -215,10 +222,7 @@
             $(this).next('.add_num').css('display', 'block'); 
             
             
-        });
-
-    
-        
+        }); 
     });
 
 </script>

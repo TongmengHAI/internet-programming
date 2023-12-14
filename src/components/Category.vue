@@ -1,21 +1,27 @@
-<template>
-    <div class="category" :style="{ backgroundColor: bg_color }">
-        <div class="image" >
-            <img :src="img" alt="Hello" />
+
+<template>           
+        <div class="category" :style="{ backgroundColor: bg_color }">
+            <RouterLink :to="categoryId">
+                <div class="image" >
+                    <img :src="img" alt="Hello" />
+                </div>
+                <div class="content">
+                    <div class="name">{{ name }}</div>
+                    <div class="num_item">{{ num_item }} items</div>
+                    
+                </div>
+            </RouterLink>
+
         </div>
-        <div class="content">
-            <div class="name">{{ name }}</div>
-            <div class="num_item">{{ num_item }} items </div>
-            
-        </div>
-    </div>
 
 </template>
 
 <script>
+    
     export default{
         name:"category",
         props:{
+            categoryId:String,
             img:String,
             name:String,
             num_item:String,
@@ -58,7 +64,7 @@
     }
     .category .content .name{
         font-weight: bold;
-        font-size: 16px;
+        font-size: 14px;
     }
     .category .content .num_item{
         font-size: 12px;
