@@ -7,59 +7,61 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+    public function getProducts(){
+        $getProducts = Product::select('*')->get();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return response()->json(['code'=>200,"message"=>"Create Successfully",'data'=>$getProducts]);
     }
+    public function getProduct($id){
+        $getProduct = Product::select('*')->where('id',$id)->first();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        return response()->json(['code'=>200,"message"=>"Successfully",'data'=>$getProduct]);
     }
+    public function createProduct(Request $request){
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
+        $name= $pricing = $description = $category_id ="";
+
+        $name = $request->name;
+        $pricing = $request->pricing;
+        $description = $request->description;
+        $category_id = $request->category_id;
+        $images = $request->images;
+
+        $new_product = Product::create([
+            'name'=>$name,
+            'category_id'=>$category_id,
+            'pricing'=>$pricing,
+            'description'=>$description,
+        ]);
+        return  response()->json(['code'=>200,"message"=>"Product create Successfully"]);
     }
+    public function updateProduct(Request $request , $id){
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
+        $name= $pricing = $description = $category_id ="";
+
+        $name = $request->name;
+        $pricing = $request->pricing;
+        $description = $request->description;
+        $category_id = $request->category_id;
+
+        $new_product = Product::where('id',$id)->update([
+            'name'=>$name,
+            'category_id'=>$category_id,
+            'pricing'=>$pricing,
+            'description'=>$description,
+        ]);
+
+
+        return response()->json(['code'=>200,"message"=>"Update Successfully"]);
     }
+    public function deleteProduct(Request $request , $id){
+        $updateProduct = Product::where('id',$id)->delete();
+        if($updateProduct){
+            return response()->json(['code'=>200,"message"=>"Delete Successfully"]);
+        }
+        return response()->json(["message"=>"Product not available"]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
     }
 }
+

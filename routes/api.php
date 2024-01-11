@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,47 +20,23 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-// Route::controller(CategoriesController::class)->group(function(){
-//     Route::get('/categories');
-//     Route::post('/categories');
-//     Route::get('/categories/{categoryId}');
-//     Route::patch('/categories/{categoryId}');
-//     Route::delete('/categories/{categoryId}');
-// });
+Route::controller(CategoriesController::class)->group(function(){
+    Route::get('/categories',"getCategories");
+    Route::post('/category',"createCategory");
+    Route::get('/category/{categoryId}',"getCategory");
+    Route::post('/category/{categoryId}',"updateCategory");
+    Route::delete('/category/{categoryId}',"deleteCategory");
+});
 
-    Route::get('/categories',function(){
-        return "Get all categories";
-    });
+Route::controller(ProductController::class)->group(function(){
+    Route::get('/products',"getProducts");
+    Route::post('/product',"createProduct");
+    Route::get('/product/{productId}',"getProduct");
+    Route::post('/product/{productId}',"updateProduct");
+    Route::delete('/product/{productId}',"deleteProduct");
+});
 
-    Route::post('/categories',function(Request $request){
-        return "Create all categories";
-    });
 
-    Route::patch('/categories/{categoryId}',function(Request $request){
-        return "Update 1 category";
-    });
-
-    Route::delete('/categories/{categoryId}',function(Request $request){
-        return "Delete 1 category";
-
-    });
-
-    Route::get('/product',function(){
-        return "Get all products";
-    });
-
-    Route::post('/product',function(Request $request){
-        return "Create all products";
-    });
-
-    Route::patch('/product/{productId}',function(Request $request){
-        return "Update 1 product";
-    });
-
-    Route::delete('/product/{productId}',function(Request $request){
-        return "Delete 1 product";
-
-    });
 
 
 
