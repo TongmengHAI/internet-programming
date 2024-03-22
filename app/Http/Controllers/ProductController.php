@@ -56,7 +56,6 @@ class ProductController extends Controller
     }
     public function deleteProduct($id){
         $updateProduct = Product::where('id',$id)->delete();
-        $a = $a->crea
         if($updateProduct){
             return response()->json(['code'=>200,"message"=>"Delete Successfully"]);
         }

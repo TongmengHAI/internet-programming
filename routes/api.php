@@ -39,7 +39,9 @@ Route::middleware(['auth:api'])->group(function(){
         Route::post('/product/{productId}',"updateProduct");
         Route::delete('/product/{productId}',"deleteProduct");
     });
+    
 });
+
 
 
 
