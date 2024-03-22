@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -34,3 +35,10 @@ Route::middleware('auth:api')->get('/user', function(Request $request){
 });
 
 require __DIR__.'/auth.php';
+
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/',"renderHome");
+    Route::get('/product',"show");
+    Route::post('/product',"store");
+});
+

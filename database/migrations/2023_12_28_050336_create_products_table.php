@@ -16,8 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->bigInteger('category_id')->unsigned();
             $table->double('pricing');
+            $table->string('specail_offer')->nullable();
+            $table->double('discount_pricing')->nullable()->default(0);
             $table->text('description')->nullable();
-            $table->jsonb('images')->nullable();
+            $table->integer('rating')->nullable()->default(0);
+            $table->integer('weight')->nullable()->default(0);
+            $table->text('image')->nullable();
+
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');

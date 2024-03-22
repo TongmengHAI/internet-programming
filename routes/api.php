@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:api'])->group(function(){
 
-    Route::controller(CategoriesController::class)->group(function(){
+    Route::controller(CategoryController::class)->group(function(){
         Route::get('/categories',"getCategories");
         Route::post('/category',"createCategory");
         Route::get('/category/{categoryId}',"getCategory");
@@ -39,7 +39,7 @@ Route::middleware(['auth:api'])->group(function(){
         Route::post('/product/{productId}',"updateProduct");
         Route::delete('/product/{productId}',"deleteProduct");
     });
-    
+
 });
 
 
