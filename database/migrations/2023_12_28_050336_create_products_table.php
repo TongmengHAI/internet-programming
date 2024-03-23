@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->double('pricing');
             $table->string('specail_offer')->nullable();
+            $table->string('tag_color')->nullable();
             $table->double('discount_pricing')->nullable()->default(0);
             $table->text('description')->nullable();
             $table->integer('rating')->nullable()->default(0);

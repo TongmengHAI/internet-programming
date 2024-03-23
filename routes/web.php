@@ -25,8 +25,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile', [ProfileController::class, 'edit'])      ->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])  ->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
@@ -37,8 +37,9 @@ Route::middleware('auth:api')->get('/user', function(Request $request){
 require __DIR__.'/auth.php';
 
 Route::controller(HomeController::class)->group(function(){
-    Route::get('/',"renderHome");
-    Route::get('/product',"show");
-    Route::post('/product',"store");
+    Route::get('/',"renderHome")            ->name("home");
+    Route::get('/product/add',"add")        ->name("product.goToCreate");
+    Route::get('/product/edit/{id}',"edit") ->name("product.goToEdit");
+    Route::post('/product/store',"store")   ->name("product.create");
 });
 
