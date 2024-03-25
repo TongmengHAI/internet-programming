@@ -1,5 +1,5 @@
 @props(['title'])
-<div class="menu_container">
+<div class="category">
     <div class="title">
         <h2 style="font-weight: bold;">{{ $title }}</h2>
         {{-- <h2 style="font-weight: bold;">Featured Categories</h2> --}}
@@ -18,21 +18,4 @@
     </div>
 </div>
 
-<style>
-    .menu_container{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
 
-
-    }
-
-    .menu_container li,a{
-        padding:0 5px ;
-        text-decoration: none;
-        color: black;
-        list-style-type: none;
-
-    }
-
-</style>
