@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 
 use App\Models\Audience;
 use App\Models\Article;
+use App\Models\Author;
 use App\Models\User;
 
 class AudienceController extends Controller
@@ -15,63 +16,82 @@ class AudienceController extends Controller
 
         $request->validate(
             [
-                'audience_name'       => 'required',
-                'username'          => 'required'
-            ]
-        );
-
-        $user = new User();
-        $user->name     = $request->username;
-        $user->email    = $request->username.'@gmail.com';
-        $user->password = 12345678;
-        $user->save();
-
-        $userId = User::select('id')->where('name',$user->name)->orderBy('id','DESC')->first();
-
-        $audience = new Audience();
-        $audience->name = $request->audience_name;
-        $audience->user_id = $userId->id;
-        $audience->save();
-
-        $audience = Audience::with(['user'])->where('user_id', $audience->user_id)->first();
-
-        return response()->json([
-            'audience'         => $audience,
-            'message'        => 'audience '.$audience->name.' created successfully.'
-        ], Response::HTTP_OK);
-    }
-
-    public function subscribeToArticle(Request $request){
-        $request->validate(
-            [
                 'article_name'     => 'required',
+                'username'         => 'required',
                 'audience_name'    => 'required',
 
             ]
         );
 
-        $my_array = [];
+        $findUser = User::where('name',$request->username)->first();
+
+        if(!$findUser){
+            $user = new User();
+            $user->name     = $request->username;
+            $user->email    = $request->username.'@gmail.com';
+            $user->password = 12345678;
+            $user->save();
+            $findUser = User::where('name',$request->username)->first();
+
+        }
+
+        $articleId = Article::select('id')->where('name',$request->article_name)->first();
 
 
-        $audience = Audience::where('name',$request->audience_name)->first();
-
-        $article  = Article::select('id')->where('name',$request->article_name)->first();
-
-        $my_array =  $audience->article_id;
-        $my_array = array_push($my_array, $article->id);
-
-        return $my_array;
-
-        // $audience->article_id = array_push($audience->article_id,$article->id);
-        // $audience->article_id = 1;
-
+        $audience = new Audience();
+        $audience->name = $request->audience_name;
+        $audience->user_id = $findUser->id;
+        $audience->article_id = $articleId->id;
         $audience->save();
+
+
+
+        $audience = Audience::with(['user'])
+        ->where('user_id', $audience->user_id)
+        ->first();
 
         return response()->json([
             'audience'         => $audience,
-            'message'          => 'audience '.$audience->name.' subscribed article successfully.'
+            'message'          => 'audience '.$audience->name.' subscribed article '.$request->article_name
+        ], Response::HTTP_OK);
+    }
+
+    public function allAudiencesOfArticle(Request $request){
+        $request->validate(
+            [
+                'article_name'        => 'required'
+            ]
+        );
+
+        $article = Article::with(['Audiences'])
+        ->select('id','name','author_id')
+        ->where('name', $request->article_name)
+        ->first();
+
+        return response()->json([
+            'article'         => $article,
+            'message'        => "all audiences of article '".$request->article_name
         ], Response::HTTP_OK);
 
+    }
+
+    public function allAudiencesOfAuthor(Request $request){
+        $request->validate(
+            [
+                'author_name'        => 'required'
+            ]
+        );
+
+        $author = Author::with(['audiences'])
+        ->select('id','name','user_id')
+        ->where('name', $request->author_name)
+        ->first();
+
+        return response()->json([
+            'author'         => $author,
+            'message'        => "all audiences of author ".$request->author_name
+        ], Response::HTTP_OK);
 
     }
+
 }

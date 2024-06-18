@@ -30,7 +30,7 @@ class Author extends Model
         return $this->hasMany(Article::class, 'author_id');
     }
 
-    public function audience(): HasManyThrough
+    public function audiences(): HasManyThrough
     {
         return $this->hasManyThrough( Audience::class, Article::class, 'author_id', 'article_id');
     }

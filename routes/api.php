@@ -13,29 +13,31 @@ use App\Http\Controllers\AudienceController;
 Route::group(['prefix'=>'author'],function(){
     Route::controller(AuthorController::class)->group(function(){
         Route::post('/create','create');
-        // Route::post('/get','index');
     });
 });
 
 Route::group(['prefix'=>'audience'],function(){
     Route::controller(AudienceController::class)->group(function(){
         Route::post('/create','create');
-        Route::post('/subscribe','subscribeToArticle');
-        Route::post('/get','index');
+        Route::get('/getByArticle','allAudiencesOfArticle');
+        Route::get('/getByAuthor','allAudiencesOfAuthor');
     });
 });
 
 Route::group(['prefix'=>'article'],function(){
     Route::controller(ArticleController::class)->group(function(){
         Route::post('/create','create');
-        Route::post('/get','index');
+        Route::get('/getByAuthor','allArticlesOfAuthor');
     });
 });
 
 Route::group(['prefix'=>'comment'],function(){
     Route::controller(CommentController::class)->group(function(){
-        Route::post('/create','create');
-        Route::post('/get','index');
+        Route::post('/toAudience','addCommentToAudience');
+        Route::post('/toAuthor','addCommentToAuthor');
+        Route::post('/toArticle','addCommentToArticle');
+        Route::get('/getByAudience','allCommentsOfAudience');
+        Route::get('/getWithTopic','allCommentsWithTopic');
     });
 });
 
