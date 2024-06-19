@@ -165,7 +165,7 @@ class CommentController extends Controller
 
             return response()->json([
                 'comment'         => $comment,
-                'message'          => 'audience '.$isAudience->name.' commented on author '.$request->author_name.': '.$request->comment
+                'message'         => 'audience '.$isAudience->name.' commented on author '.$request->author_name.': '.$request->comment
             ], Response::HTTP_OK);
         }
     }
@@ -173,7 +173,7 @@ class CommentController extends Controller
     public function allCommentsOfAudience(Request $request){
         $request->validate(
             [
-                'audience_name'        => 'required'
+                'audience_name'    => 'required'
             ]
         );
 
@@ -181,7 +181,7 @@ class CommentController extends Controller
 
 
         return response()->json([
-            'Audience'         => $audience,
+            'Audience'       => $audience,
             'message'        => "all comment of audience '".$request->audience_name
         ], Response::HTTP_OK);
 
@@ -189,12 +189,10 @@ class CommentController extends Controller
 
     public function allCommentsWithTopic(){
 
-
         $comment = Comment::with('commentable')->get();
 
-
         return response()->json([
-            'comment'         => $comment,
+            'comment'        => $comment,
             'message'        => "all all comments which include topic that each comment is on."
         ], Response::HTTP_OK);
 

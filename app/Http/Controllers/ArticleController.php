@@ -29,6 +29,7 @@ class ArticleController extends Controller
 
         $article = Article::with(['author'])
         ->where('author_id', $article->author_id)
+        ->orderBy('id','desc')
         ->first();
 
         return response()->json([

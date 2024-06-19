@@ -48,6 +48,7 @@ class AudienceController extends Controller
 
         $audience = Audience::with(['user'])
         ->where('user_id', $audience->user_id)
+        ->orderBy('id','desc')
         ->first();
 
         return response()->json([
